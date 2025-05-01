@@ -1,0 +1,84 @@
+<style>
+  .product-card {
+    max-width: 200px; /* Reducir el ancho máximo de las tarjetas */
+    margin: 10px; /* Reducir el margen entre las tarjetas */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+
+  .product-img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+
+  .quantity-input {
+    width: 70px;
+    text-align: center;
+  }
+
+  /* Agregar estilos para los botones */
+  .btn-custom {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .btn-remove {
+    margin-top: 10px;
+  }
+</style>
+
+<form  [formGroup]="detalleForm">
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h3>Seleccionar Productos</h3>
+      <div class="d-flex flex-wrap justify-content-start"> 
+        <div class="card product-card" *ngFor="let producto of productos">
+          <div class="card-body">
+            <h2 class="card-title">{{ producto.nombre }}</h2>
+            <div class="mb-3">
+              <label for="cantidad" class="form-label">Cantidad:</label>
+              <input formControlName="cantidad" type="number" class="form-control" id="cantidad" value="0">
+            </div>
+            <div class="mb-3">
+              <label for="nota" class="form-label">Nota:</label>
+              <input formControlName="nota" type="text" class="form-control" id="nota" value=" ' ' ">
+            </div>
+            <button class="btn btn-primary btn-sm btn-custom" (click)="agregarDetalle(producto)">Agregar a la orden</button>
+          </div>
+        </div>        
+      </div>
+    </div>
+
+    
+
+
+    <div class="col-md-3">
+
+
+      <form action="">
+        <h3>Detalle de la Comanda</h3>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let detalle of detalles">
+            {{ detalle.cantidad }} x {{ detalle.producto.nombre }}
+            <button class="btn btn-danger btn-sm float-end btn-remove" (click)="eliminarDetalleComanda(detalle)">Eliminar</button>
+          </li>
+        </ul>
+        <button class="btn btn-success mt-3 btn-custom"(click)="crearComanda()">Guardar Comanda</button>
+        <button class="btn btn-success mt-3 btn-custom"(click)="actualizarVenta()">Finalizar venta</button>
+      </form>
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+</form>
+
+

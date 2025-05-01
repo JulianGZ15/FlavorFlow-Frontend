@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Registro FlavorFlow</title>
+
+
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Crea una cuenta!</h1>
+                            </div>
+                            <form class="user" [formGroup]="userForm" (ngsubmit)="crearUsuario()">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" 
+                                            placeholder="Nombre" formControlName="nombre">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" 
+                                            placeholder="Apellido" formControlName="apellido">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control form-control-user" 
+                                        placeholder="Correo Electronico" formControlName="username">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 ">
+                                        <input type="password" class="form-control form-control-user"
+                                             placeholder="Contraseña" formControlName="password">
+                                    </div>
+                                </div>
+                                <a (click)="crearUsuario()" class="btn btn-primary btn-user btn-block">
+                                    Crear Cuenta
+                                </a>
+                                
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" routerLink="/login" >¿Tienes una cuenta? Accede!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

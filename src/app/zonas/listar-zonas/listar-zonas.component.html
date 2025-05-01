@@ -1,0 +1,41 @@
+
+
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <div class="card-body text-center" >
+            <span>LISTADO DE ZONAS
+            </span>
+            <button class="btn btn-success float-end" [routerLink]="['/dashboard/zonas/crearzona']" routerLinkActive="router-link-active" >NUEVO</button>
+            <table class="table">
+                <thead>
+                  <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @for (zonas of zonas; track $index) {
+
+                    
+                  <tr>
+                      <th scope="row">{{zonas.cve_zona}}</th>
+                      <td>{{zonas.nombre}}</td>
+                      <td>
+                        <i [routerLink]="['/dashboard/zonas/editarzona', zonas.cve_zona]" class="fas fa-solid fa-pen-to-square text-primary"></i>
+                        <i (click)="deleteZona(zonas.cve_zona)" class="fas fa-solid fa-trash text-danger" ></i>
+                        
+                      </td>
+                    </tr>
+                }
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+
+
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <div class="card-body text-center" >
+            <span>LISTADO DE PUESTOS
+            </span>
+            <button class="btn btn-success float-end" [routerLink]="['/dashboard/puestos/crearpuesto']" routerLinkActive="router-link-active" >NUEVO</button>
+            <table class="table">
+                <thead>
+                  <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @for (puestos of puestos; track $index) {
+
+                    
+                  <tr>
+                      <th scope="row">{{puestos.cve_puesto}}</th>
+                      <td>{{puestos.nombre}}</td>
+                      <td>
+                        <i [routerLink]="['/dashboard/puestos/editarpuesto', puestos.cve_puesto]" class="fas fa-solid fa-pen-to-square text-primary"></i>
+                        <i (click)="deletePuesto(puestos.cve_puesto)" class="fas fa-solid fa-trash text-danger" ></i>
+                        
+                      </td>
+                    </tr>
+                }
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

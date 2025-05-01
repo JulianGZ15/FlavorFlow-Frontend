@@ -1,0 +1,33 @@
+
+<div class="container mt-5">
+    <div class="row">
+       <div class="col-lg-6 offset-lg-3">
+        <div class="card">
+          <div class="card-body text-center">
+              <span>{{titulo | uppercase}}</span>
+                <form class="mt-3" [formGroup]="zonaForm" (ngSubmit)="agregarZona()">
+                  <div class="mb-3">
+                    <input type="text" formControlName="nombre"
+                    class="form-control form-control-lg" placeholder="Nombre de la zona"> 
+                    <div class="text-danger"
+                      *ngIf="zonaForm.get('nombre')?.hasError('required') && zonaForm.get('nombre')?.touched ">
+                      <span>El campo es <strong>obligatorio</strong></span>
+                    </div>
+                  </div>
+  
+
+  
+                  <div class="mb_3">
+                    <button [routerLink]="['/dashboard/productos/listaproductos']" routerLinkActive="router-link-active"  class="btn btn-secondary btn-lg float-start">REGRESAR</button>
+                    <button class="btn btn-success btn-lg float-end" >REGISTRAR</button>
+                  </div>
+  
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

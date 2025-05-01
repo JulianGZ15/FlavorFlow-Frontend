@@ -1,0 +1,102 @@
+
+<button class="btn btn-success float-end" (click)="generarPdf()" >Generar PDF</button>
+
+    <div class="container py-5" *ngIf="empleado" id="informacionEmpleado">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <h5 class="my-3">{{empleado.nombre}}</h5>
+              <p class="text-muted mb-1">{{empleado.puesto.nombre}}</p>
+            </div>
+          </div>
+
+
+
+        </div>
+        <div class="col-lg-8">
+            <span>DATOS PERSONALES</span>
+
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Nombre completo</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{empleado.nombre}} {{empleado.paterno}} {{empleado.materno}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Edad</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{empleado.edad}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Fecha de contratacion</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{empleado.fecha_contratacion}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-lg-8">
+        <span>DIRECCION</span>
+
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Calle</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{empleado.direccion.calle}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Colonia</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{empleado.direccion.colonia}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Codigo postal</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{empleado.direccion.codigo_postal}}</p>
+              </div>
+            </div>
+
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Estado</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{empleado.direccion.estado.nombre}}</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+
+
+    </div>

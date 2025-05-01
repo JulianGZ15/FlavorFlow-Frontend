@@ -1,0 +1,143 @@
+
+<div class="container mt-5">
+    <div class="row">
+       <div class="col-lg-6 offset-lg-3">
+        <div class="card">
+          <div class="card-body text-center">
+              <span>DAR DE ALTA EMPLEADO</span>
+                <form class="mt-3" [formGroup]="empleadoForm" (ngSubmit)="agregarEmpleado()">
+                  <label for="text-primary">DATOS PERSONALES</label>
+                  <div class="mb-3">
+                    <input type="text" formControlName="nombre"
+                    class="form-control form-control-lg" placeholder="Nombre del empleado"> 
+                    <div class="text-danger"
+                      *ngIf="empleadoForm.get('nombre')?.hasError('required') && empleadoForm.get('nombre')?.touched ">
+                      <span>El campo es <strong>obligatorio</strong></span>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <input type="text" formControlName="paterno"
+                    class="form-control form-control-lg" placeholder="A.paterno del empleado"> 
+                    <div class="text-danger"
+                      *ngIf="empleadoForm.get('paterno')?.hasError('required') && empleadoForm.get('paterno')?.touched ">
+                      <span>El campo es <strong>obligatorio</strong></span>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <input type="text" formControlName="materno"
+                    class="form-control form-control-lg" placeholder="A.materno del empleado"> 
+                    <div class="text-danger"
+                      *ngIf="empleadoForm.get('materno')?.hasError('required') && empleadoForm.get('materno')?.touched ">
+                      <span>El campo es <strong>obligatorio</strong></span>
+                    </div>
+                  </div>
+
+  
+                  <div class="mb-3">
+                    <input type="number" formControlName="edad"
+                    class="form-control form-control-lg" placeholder="Edad del empleado"> 
+                    <div class="text-danger"
+                      *ngIf="empleadoForm.get('edad')?.hasError('required') && empleadoForm.get('edad')?.touched">
+                      <span>El campo es <strong>obligatorio</strong></span>
+                    </div>
+                  </div>
+  
+                  <div class="mb-3">
+                    <input type="date" formControlName="fechaContratacion"
+                    class="form-control form-control-lg" placeholder="Edad del empleado"> 
+                    <div class="text-danger"
+                      *ngIf="empleadoForm.get('fechacontratacion')?.hasError('required') && empleadoForm.get('fechacontratacion')?.touched">
+                      <span>El campo es <strong>obligatorio</strong></span>
+                    </div>
+                  </div>
+
+                  
+                  <label for="text-primary">DIRECCION</label>
+
+                  <div class="mb-3">
+                    <select formControlName="pais" class="form-control" (change)="cargarEstadosPorPais()">
+                      <option *ngFor="let pais of paises" [value]="pais.cve_pais">{{ pais.nombre }}</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <select formControlName="estado" class="form-control">
+                      <option *ngFor="let estado of estados" [value]="estado.cve_estado">{{ estado.nombre }}</option>
+                    </select>
+                  </div>
+
+                  <div class="mb-3">
+                    <input type="text" formControlName="calle"
+                    class="form-control form-control-lg" placeholder="Calle del domicilio"> 
+                    <div class="text-danger"
+                      *ngIf="empleadoForm.get('calle')?.hasError('required') && empleadoForm.get('calle')?.touched">
+                      <span>El campo es <strong>obligatorio</strong></span>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <input type="number" formControlName="numero"
+                    class="form-control form-control-lg" placeholder="Numero de la casa del domicilio"> 
+                    <div class="text-danger"
+                      *ngIf="empleadoForm.get('numero')?.hasError('required') && empleadoForm.get('numero')?.touched">
+                      <span>El campo es <strong>obligatorio</strong></span>
+                    </div>
+                  </div>
+
+                  <div class="mb-3">
+                    <input type="text" formControlName="colonia"
+                    class="form-control form-control-lg" placeholder="Colonia del domicilio"> 
+                    <div class="text-danger"
+                      *ngIf="empleadoForm.get('colonia')?.hasError('required') && empleadoForm.get('colonia')?.touched">
+                      <span>El campo es <strong>obligatorio</strong></span>
+                    </div>
+                  </div>
+
+                  
+                  <div class="mb-3">
+                    <input type="number" formControlName="codigoPostal"
+                    class="form-control form-control-lg" placeholder="Codigo postal del domicilio"> 
+                    <div class="text-danger"
+                      *ngIf="empleadoForm.get('codigoPostal')?.hasError('required') && empleadoForm.get('codigoPostal')?.touched">
+                      <span>El campo es <strong>obligatorio</strong></span>
+                    </div>
+                  </div>
+
+                  <label for="text-primary">PUESTO</label>
+
+                  <div class="mb-3">
+                    <select formControlName="puesto" class="form-control" id="Puesto" >
+                        <option *ngFor="let puesto of puestos" [ngValue]="puesto">{{ puesto.nombre }} </option>
+                      </select>
+                  </div>
+
+                  <label for="text-primary"> NIP DE ACCESO</label>
+
+                  <div class="mb-3">
+                    <input type="number" formControlName="nipAcceso"
+                    class="form-control form-control-lg" placeholder="Nip de seguridad"> 
+                    <div class="text-danger"
+                      *ngIf="empleadoForm.get('nipAcceso')?.hasError('required') && empleadoForm.get('nipAcceso')?.touched">
+                      <span>El campo es <strong>obligatorio</strong></span>
+                    </div>
+                  </div>
+
+  
+                  <div class="mb_3">
+                    <button [routerLink]="['/dashboard/empleados/listaempleados']" routerLinkActive="router-link-active"  class="btn btn-secondary btn-lg float-start">REGRESAR</button>
+                    <button class="btn btn-success btn-lg float-end" >REGISTRAR</button>
+                  </div>
+
+
+  
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

@@ -1,0 +1,55 @@
+<script src="html2pdf.bundle.min.js"></script>
+
+    <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card-body text-center" >
+                    <span>LISTADO DE EMPLEADOS
+                    </span>
+                    <button class="btn btn-success float-end" [routerLink]="['/dashboard/empleados/registrarempleado']" routerLinkActive="router-link-active" >NUEVO</button>
+                    <button class="btn btn-primary float-end me-2" (click)="generarPDF()">Generar PDF</button>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                              <th scope="col">ID</th>
+                              <th scope="col">Nombre</th>
+                              <th scope="col">Paterno</th>
+                              <th scope="col">Materno</th>
+                              <th scope="col">Edad</th>
+                              <th scope="col">Fecha Contratacion</th>
+                              <th scope="col">Puesto</th>
+
+                              <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @for (empleados of empleados; track $index) {
+
+                            
+                          <tr>
+                              <th scope="row">{{empleados.cve_empleado}}</th>
+                              <td>{{empleados.nombre}}</td>
+                              <td>{{empleados.paterno}}</td>
+                              <td>{{empleados.materno}}</td>
+                              <td>{{empleados.edad}}</td>
+                              <td>{{empleados.fecha_contratacion}}</td>
+                              <td>{{empleados.puesto.nombre}}</td>
+
+                              <td>
+                                <i [routerLink]="['/dashboard/empleados/editarempleado', empleados.cve_empleado]" class="fas fa-solid fa-pen-to-square text-primary"></i>
+                                <i (click)="deleteEmpleado(empleados.cve_empleado)" class="fas fa-solid fa-trash text-danger" ></i>
+                                <button class="btn btn-success float-end" [routerLink]="['/dashboard/empleados/datosempleado', empleados.cve_empleado]" routerLinkActive="router-link-active" >Ver detalle</button>
+
+                              </td>
+                            </tr>
+                        }
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+<div class="container py-3 h-50">
+    <div class="row d-flex flex-row">
+        @for (mesas of mesas; track $index) {
+            <div class="col-md-8 col-xl-3">
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body text-center">
+                        <h4 class="mb-2"> Mesa numero: {{mesas.num_mesa}} </h4>
+                        <p class="text-muted mb-4">En la zona: {{mesas.zona.nombre}}</p>
+                        <p [ngStyle]="{ color: estatusMesas[mesas.cve_mesa] === 'Mesa Libre' ? 'green' : 'red' }" class="text-muted mb-4">
+                            Estatus: {{estatusMesas[mesas.cve_mesa]}}</p>
+
+                        <button type="button" class="btn btn-primary btn-rounded btn-lg" (click)="Atender(mesas.cve_mesa)" >
+                            Atender
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

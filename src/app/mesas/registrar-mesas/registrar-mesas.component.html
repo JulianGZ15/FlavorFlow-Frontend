@@ -1,0 +1,46 @@
+
+<div class="container mt-5">
+    <div class="row">
+       <div class="col-lg-6 offset-lg-3">
+        <div class="card">
+          <div class="card-body text-center">
+              <span>{{titulo | uppercase}}</span>
+                <form class="mt-3" [formGroup]="mesaForm" (ngSubmit)="agregarMesa()">
+                  <div class="mb-3">
+                    <input type="number" formControlName="asientos"
+                    class="form-control form-control-lg" placeholder="Numero de asientos"> 
+                    <div class="text-danger"
+                      *ngIf="mesaForm.get('asientos')?.hasError('required') && mesaForm.get('asientos')?.touched ">
+                      <span>El campo es <strong>obligatorio</strong></span>
+                    </div>
+                  </div>
+  
+                  <div class="mb-3">
+                    <input type="number" formControlName="num_mesa"
+                    class="form-control form-control-lg" placeholder="Numero de la mesa"> 
+                    <div class="text-danger"
+                      *ngIf="mesaForm.get('num_mesa')?.hasError('required') && mesaForm.get('num_mesa')?.touched">
+                      <span>El campo es <strong>obligatorio</strong></span>
+                    </div>
+                  </div>
+  
+                  <div class="mb-3">
+                    <select formControlName="zona" class="form-control" id="zona" [(ngModel)]="selectedZona">
+                        <option *ngFor="let zona of zonas" [ngValue]="zona">{{ zona.nombre }}</option>
+                      </select>
+                  </div>
+  
+                  <div class="mb_3">
+                    <button [routerLink]="['/dashboard/mesas/listamesas']" routerLinkActive="router-link-active"  class="btn btn-secondary btn-lg float-start">REGRESAR</button>
+                    <button class="btn btn-success btn-lg float-end" >REGISTRAR</button>
+                  </div>
+  
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

@@ -1,0 +1,49 @@
+<script src="html2pdf.bundle.min.js"></script>
+
+    <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card-body text-center" >
+                    <span>LISTADO DE VENTAS
+                    </span>
+                    <button class="btn btn-primary float-end me-2" (click)="generarPDF()">Generar PDF</button>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                              <th scope="col">Num mesa</th>
+                              <th scope="col">Zona de la Mesa</th>
+                              <th scope="col">Fecha</th>
+                              <th scope="col">Importe</th>
+                              <th scope="col">IVA</th>
+                              <th scope="col">Total</th>
+
+                              <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @for (venta of ventas; track $index) {
+
+                            
+                          <tr>
+                              <th scope="row">{{venta.cve_venta}}</th>
+                              <td>{{venta.mesa.num_mesa}}</td>
+                              <td>{{venta.mesa.zona.nombre}}</td>
+                              <td>{{venta.fecha}}</td>
+                              <td>${{venta.importe}}</td>
+                              <td>${{venta.iva}}</td>
+                              <td>${{venta.total}}</td>
+
+                              
+                            </tr>
+                        }
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+

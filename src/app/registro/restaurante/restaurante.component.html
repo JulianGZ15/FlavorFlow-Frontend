@@ -1,0 +1,40 @@
+
+<div class="container-fluid gradient-bg pt-5 pb-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body text-center">
+              <h2 class="mb-4">Registra tu restaurante</h2>
+              <form class="mt-3" [formGroup]="empleadoForm" (ngSubmit)="registrarRestaurante()">
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre del restaurante</label>
+                  <input type="text" formControlName="nombre" class="form-control" id="nombre" placeholder="Nombre del restaurante">
+                  <div class="invalid-feedback" *ngIf="empleadoForm.get('nombre')?.hasError('required') && empleadoForm.get('nombre')?.touched">
+                    El campo es obligatorio
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="direccion" class="form-label">Dirección del restaurante</label>
+                  <select formControlName="pais" class="form-select mb-3" (change)="cargarEstadosPorPais()">
+                    <option *ngFor="let pais of paises" [value]="pais.cve_pais">{{ pais.nombre }}</option>
+                  </select>
+                  <select formControlName="estado" class="form-select mb-3">
+                    <option *ngFor="let estado of estados" [value]="estado.cve_estado">{{ estado.nombre }}</option>
+                  </select>
+                  <input type="text" formControlName="calle" class="form-control mb-3" placeholder="Calle del domicilio">
+                  <input type="number" formControlName="numero" class="form-control mb-3" placeholder="Número de la casa del domicilio">
+                  <input type="text" formControlName="colonia" class="form-control mb-3" placeholder="Colonia del domicilio">
+                  <input type="number" formControlName="codigoPostal" class="form-control mb-3" placeholder="Código postal del domicilio">
+                  <div class="invalid-feedback" *ngIf="empleadoForm.get('calle')?.hasError('required') && empleadoForm.get('calle')?.touched">
+                    El campo es obligatorio
+                  </div>
+                  <button class="btn btn-success btn-lg float-end">REGISTRAR</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

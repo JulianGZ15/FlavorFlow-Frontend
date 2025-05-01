@@ -1,0 +1,46 @@
+
+
+<div class="row">
+    <div class="col-lg-8 offset-lg-2">
+        <div class="card-body text-center" >
+            <span>LISTADO DE MESAS
+            </span>
+            <button class="btn btn-success float-end" [routerLink]="['/dashboard/mesas/registrarmesas']" routerLinkActive="router-link-active" >NUEVO</button>
+            <button class="btn btn-primary float-end me-2" (click)="generarPDF()">Generar PDF</button>
+            <table class="table">
+                <thead>
+                  <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Zona</th>
+                      <th scope="col">Num mesa</th>
+                      <th scope="col">Asientos</th>
+                      <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @for (mesas of mesas; track $index) {
+
+                    
+                  <tr>
+                      <th scope="row">{{mesas.cve_mesa}}</th>
+                      <td>{{mesas.zona.nombre}}</td>
+                      <td>{{mesas.num_mesa}}</td>
+                      <td>{{mesas.asientos}}</td>
+                      <td>
+                        <i [routerLink]="['/dashboard/mesas/editarmesa', mesas.cve_mesa, mesas.zona.cve_zona]" class="fas fa-solid fa-pen-to-square text-primary"></i>
+                        <i (click)="deleteMesa(mesas.cve_mesa)" class="fas fa-solid fa-trash text-danger" ></i>
+                        
+                      </td>
+                    </tr>
+                }
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
